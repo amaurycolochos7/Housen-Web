@@ -1,8 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
+
+export const dynamic = 'force-dynamic'
 
 interface Appointment {
     id: string
@@ -16,7 +18,7 @@ interface Appointment {
     }
 }
 
-export default function AgendaPage() {
+function AgendaContent() {
     const searchParams = useSearchParams()
     const leadIdFromParam = searchParams.get('leadId')
 
@@ -198,5 +200,13 @@ export default function AgendaPage() {
                 </div>
             )}
         </div>
+    )
+}
+
+export default function AgendaPage() {
+    return (
+        <Suspense fallback={<div className="p-8 text-center text-gray-400">Cargando agenda...</div>}>
+            <AgendaContent />
+        </Suspense>
     )
 }
