@@ -37,9 +37,9 @@ const projects: Record<string, {
         type: 'COMERCIAL',
         coverImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=800&fit=crop',
         galleryImages: [
-            'https://images.unsplash.com/photo-1577415124269-fc1140354b26?w=800&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=600&fit=crop',
+            'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&h=600&fit=crop',
             'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop',
+            'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=600&fit=crop',
         ],
         features: ['20 locales comerciales', 'Oficinas ejecutivas', 'Estacionamiento', 'A/C central', 'Food court', 'Vigilancia 24/7']
     },
