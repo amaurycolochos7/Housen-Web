@@ -73,15 +73,24 @@ export default function Footer({ config }: FooterProps) {
                             <h4 className="font-medium text-white mb-6">Contacto</h4>
                             <ul className="space-y-4 text-sm text-gray-500">
                                 <li>
+                                    <a href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`} className="hover:text-white transition-colors flex items-center gap-2">
+                                        {siteConfig.phone}
+                                    </a>
+                                </li>
+                                <li>
                                     <a href={whatsappUrl} target="_blank" className="hover:text-white transition-colors flex items-center gap-2">
                                         WhatsApp
                                     </a>
                                 </li>
                                 <li>
-                                    <span className="block">{contactEmail}</span>
+                                    <a href={`mailto:${contactEmail}`} className="hover:text-white transition-colors block">
+                                        {contactEmail}
+                                    </a>
                                 </li>
-                                <li className="leading-relaxed">
-                                    {siteConfig.address}
+                                <li>
+                                    <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors leading-relaxed block">
+                                        {siteConfig.address}
+                                    </a>
                                 </li>
                             </ul>
                         </div>
