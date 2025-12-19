@@ -5,7 +5,7 @@ import { authOptions } from '@/lib/auth'
 
 export async function GET(
     req: Request,
-    props: { params: Promise<{ id: string }> }
+    props: any
 ) {
     const params = await props.params;
     const session = await getServerSession(authOptions)
@@ -29,7 +29,7 @@ export async function GET(
 
 export async function PATCH(
     req: Request,
-    props: { params: Promise<{ id: string }> }
+    props: any
 ) {
     const params = await props.params;
     const session = await getServerSession(authOptions)
@@ -49,7 +49,7 @@ export async function PATCH(
 
 export async function DELETE(
     req: Request,
-    props: { params: Promise<{ id: string }> }
+    props: any
 ) {
     const params = await props.params;
     const session = await getServerSession(authOptions)
