@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# HOUSEN® Web Platform
 
-## Getting Started
+Plataforma web corporativa para HOUSEN® – Constructora & Inmobiliaria.
 
-First, run the development server:
+## 🔐 SEGURIDAD DE CREDENCIALES
+
+> ⚠️ **IMPORTANTE**: Las credenciales NUNCA deben subirse a Git ni exponerse públicamente.
+
+### Archivos protegidos por .gitignore:
+- `.env` - Variables de entorno general
+- `.env.local` - Variables locales (tu archivo actual)
+- `.env.production` - Variables de producción
+
+**Estos archivos NUNCA se suben a Git** gracias a la línea `.env*` en `.gitignore`.
+
+### Para Vercel (Producción):
+1. Ve a tu proyecto en [vercel.com](https://vercel.com)
+2. Settings → Environment Variables
+3. Agrega cada variable manualmente:
+   - `DATABASE_URL` = tu URL de Supabase
+   - `NEXTAUTH_SECRET` = un secreto único generado
+   - `NEXTAUTH_URL` = tu dominio de producción
+
+**Nunca compartas las credenciales por chat, email o código.**
+
+---
+
+## Configuración Rápida
+
+### 1. El archivo `.env.local` ya está creado con tus credenciales.
+
+### 2. Configurar Base de Datos
+
+```bash
+# Generar cliente Prisma
+npx prisma generate
+
+# Crear tablas en Supabase
+npx prisma db push
+
+# Crear usuario admin y datos demo
+npx prisma db seed
+```
+
+### 3. Ejecutar en Desarrollo
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrir [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estructura del Proyecto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+housen-web/
+├── src/
+│   ├── app/
+│   │   ├── admin/        # Panel CMS
+│   │   ├── api/          # API Routes
+│   │   ├── proyectos/    # Catálogo de proyectos
+│   │   ├── constructora/ # Servicios de construcción
+│   │   ├── inmobiliaria/ # Servicios inmobiliarios
+│   │   ├── nosotros/     # Página de nosotros
+│   │   └── contacto/     # Página de contacto
+│   ├── components/       # Componentes reutilizables
+│   └── lib/              # Utilidades y configuración
+└── prisma/
+    └── schema.prisma     # Esquema de base de datos
+```
 
-## Learn More
+## Despliegue en Vercel
 
-To learn more about Next.js, take a look at the following resources:
+1. Conectar repositorio a Vercel
+2. Configurar variables de entorno
+3. Deploy automático
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Integraciones
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **WhatsApp**: Todos los números abren wa.me con mensaje prellenado
+- **Google Maps**: Mapa embebido en página de contacto
+- **NextAuth**: Autenticación para panel admin
